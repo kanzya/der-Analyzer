@@ -169,6 +169,7 @@ class PEM_analyzer:
         ret =  header_extract(data, json_data)
         return json.dumps(ret[1], indent=2)
 
+if __name__ == "__main__":
+    print(PEM_analyzer(int).import_pem(open("./test/ca-privatekey.pem").read()))
 
 
-print(PEM_analyzer(int).import_pem(open("./test/ca-privatekey.pem").read()))
