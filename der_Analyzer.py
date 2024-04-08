@@ -24,7 +24,7 @@ class PEM_analyzer:
     def import_pem(self, pem_data: bytes):
 
         if not (("BEGIN" in pem_data) or ("END" in pem_data)):
-            raise NotImplementedError("not supported or collapted")
+            raise NotImplementedError("not supported or broken")
 
         if "-----BEGIN PRIVATE KEY-----" in pem_data:
             pem_data = pem_data.replace(
@@ -45,11 +45,11 @@ class PEM_analyzer:
                 "-----BEGIN RSA PUBLIC KEY-----", "").replace("-----END RSA PUBLIC KEY------", "")
 
         else:
-            raise NotImplementedError("not supported or collapted")
+            raise NotImplementedError("not supported or broken")
 
         pem_data = pem_data.replace("\n", "")
 
-        # can recover collapted
+        # can recover broken
         b64_pattern = "[a-zA-Z0-9+/=]+"
         re_test = re.sub(b64_pattern, "", pem_data)
 
@@ -65,9 +65,9 @@ class PEM_analyzer:
             return self.extract_ans1(b64decode(pem_data))
 
         else:
-            return self.analyze_collapted(pem_data)
+            return self.analyze_broken(pem_data)
 
-    def analyze_collapted(self, data):
+    def analyze_broken(self, data):
 
         logger.info("try extract to binarry value ")
         logger.info("set to type of int is bin")
