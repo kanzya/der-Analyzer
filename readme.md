@@ -8,7 +8,7 @@ Output pem in json format.
 
 ### nomal version
 ```python
-from der_Analyzer.der_Analyzer import der_Analyzer
+from der_Analyzer import PEM_analyzer
 print(PEM_analyzer(hex).import_pem(open("./test/4096.pem").read()))
 ```
 
@@ -19,8 +19,8 @@ Parse the value with "*" for the unknown part
 
 
 ```python
-from der_Analyzer.der_Analyzer import der_Analyzer
-print(PEM_analyzer(hex).import_pem(open("./test/some_collapted.pem").read()))
+from der_Analyzer import PEM_analyzer
+print(PEM_analyzer(hex).import_pem(open("./test/some_broken.pem").read()))
 ```
 
 # Copyright

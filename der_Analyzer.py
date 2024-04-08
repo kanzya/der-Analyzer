@@ -213,7 +213,7 @@ class PEM_analyzer:
 
 
 if __name__ == "__main__":
-    print(PEM_analyzer(hex).import_pem(open("./test/2048_0.pem").read()))
+    print(PEM_analyzer(hex).import_pem(open("./test/some_broken.pem").read()))
     print(PEM_analyzer().import_pem(open("./test/2048_2.pem").read()))
     print(PEM_analyzer().import_pem(open("./test/2048_3.pem").read()))
     print(PEM_analyzer().import_pem(open("./test/4096.pem").read()))
